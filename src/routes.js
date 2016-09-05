@@ -13,7 +13,7 @@ var router = new VueRouter();
 
 // Require view files for routing
 // (Add required components here)
-var Main = require('components/Home.vue')
+var Main = require('components/Home.vue');
 
 //Router config (Add routes here)
 router.map({

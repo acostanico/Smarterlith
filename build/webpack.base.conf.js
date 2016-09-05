@@ -66,6 +66,12 @@ module.exports = {
   vue: {
     loaders: utils.cssLoaders(),
         html: {
-          root: path.resolve(__dirname, '../src'),    }
+          root: path.resolve(__dirname, '../src')
+        }
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, '../src/assets/css/sass')
+    ]
   }
 }

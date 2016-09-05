@@ -1,16 +1,17 @@
 <template>
-  <div id="app">
-    <img src="/assets/img/smarterlith-logo.png"></img>
-    <h1> Welcome to Smarterlith </h1>
-  </div>
+    <navbar></navbar>
+    <!--<surveys></surveys>-->
 </template>
 
 <script>
+
+  import navbar from 'components/commons/navbar.vue';
+  import surveys from 'components/views/surveys.vue';
+
   var vm = {
-    data: function(){
-        return{
-          addresses : []
-        }
+    components : {
+      navbar : navbar,
+      surveys : surveys
     },
     created : function(){
       var vm = this;
@@ -29,11 +30,37 @@
 
 <style lang="scss">
 
-  #app {
+  $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+  @import '~bootstrap-sass/assets/stylesheets/_bootstrap';
+  @import "colors.scss";
+  @import "fonts.scss";
 
-    font-family: Verdana, sans-serif;
-    text-align: center;
-
-
+  @font-face {
+      font-family: Montserrat;
+      src: url('/Montserrat-Regular.otf');
   }
+
+  @font-face {
+      font-family: Circular;
+      src: url('../assets/fonts/Circular.ttf');
+  }
+
+  //Main SPa body definition
+  body{
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+  }
+
+  #app {
+    font-family: Montserrat, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 65px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+  }
+
+
 </style>
