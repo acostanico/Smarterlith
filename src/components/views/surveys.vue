@@ -30,8 +30,7 @@ export default vm;
 
   $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   @import '~bootstrap-sass/assets/stylesheets/_bootstrap';
-  @import "colors.scss";
-  @import "fonts.scss";
+  @import "globals.scss";
 
   .index-container{
       color:white;

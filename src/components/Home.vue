@@ -1,6 +1,5 @@
 <template>
-    <navbar></navbar>
-    <!--<surveys></surveys>-->
+    <surveys></surveys>
 </template>
 
 <script>
@@ -15,6 +14,7 @@
     },
     created : function(){
       var vm = this;
+
     }
   }
 
@@ -32,8 +32,8 @@
 
   $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
   @import '~bootstrap-sass/assets/stylesheets/_bootstrap';
-  @import "colors.scss";
-  @import "fonts.scss";
+  @import "globals.scss";
+
 
   @font-face {
       font-family: Montserrat;
@@ -54,7 +54,7 @@
   #app {
     font-family: Montserrat, Verdana, sans-serif;
     text-align: center;
-    padding-top: 65px;
+    //padding-top: 65px;
     position: absolute;
     top: 0;
     bottom: 0;

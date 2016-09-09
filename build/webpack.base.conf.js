@@ -71,7 +71,7 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [
-      path.resolve(__dirname, '../src/assets/css/sass')
+      path.resolve(__dirname, '../src/assets/styles')
     ]
   }
 }

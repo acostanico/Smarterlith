@@ -40,8 +40,7 @@
 
 <style lang="scss">
 
-  @import "colors.scss";
-  @import "mixins.scss";
+  @import "globals.scss";
 
 
   #smarterlith-navbar{
