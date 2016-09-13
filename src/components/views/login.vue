@@ -1,8 +1,11 @@
 <template>
   <div class="main-container">
     <div class="login-header">
-      <img class="header-logo" src="/assets/img/smarterlith-logo.png"></img>
-      <span> Get smarter </span>
+        <img class="login-header-logo" src="/assets/img/smarterlith-logo.png"></img>
+        <div>
+        <p class="header"> Get smarter. </p>
+        <p class="subheader"> Test your coding skills with our surveys </p>
+        </div>
     </div>
   </div>
 </template>
@@ -33,15 +36,34 @@
   }
 
   .login-header{
-
-    font-size:100px;
+    font-size:4rem;
     color:white;
-
-    .header-logo{
-      height:2em;
-      margin:0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    margin: 10px 10px 10px 10px;
+    @include respond-to('sm'){
+      font-size:8rem;
+    }
+    @include respond-to('lg'){
+      font-size:10rem;
     }
 
+    .login-header-logo{
+      height:2.3em;
+      margin: 0.3em 0.5em 0.3em 0.5em;
+    }
+
+  }
+
+  .header{
+    margin-bottom:0.05em;
+  }
+
+  .subheader{
+    color:$primary-s3;
+    font-size:0.3em;
   }
 
 </style>
