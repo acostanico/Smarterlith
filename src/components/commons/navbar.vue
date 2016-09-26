@@ -11,7 +11,7 @@
           </button>
 
           <a class="navbar-brand title" class="title" href="#">
-            <img src="/assets/img/smarterlith-logo.png" class="logo"></img>
+            <img src="/assets/img/smarterlithlogo.svg" class="logo"></img>
             <span>Smarterlith</span>
           </a>
         </div>
