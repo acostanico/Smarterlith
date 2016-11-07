@@ -1,25 +1,47 @@
 <template>
-  <div class="main-container">
-    <div class="login-container">
-      <div class="login-header">
-          <img class="login-header-logo" src="/assets/img/smarterlithlogo.svg"></img>
-          <p class="header"> Smarterlith </p>
-      </div>
-      <div class="auth">
-        <input class="input-transparent" placeholder="Username"> </input>
-        <input class="input-transparent" type="password" placeholder="Password"> </input>
-        <button class="btn-primary-transparent login-button"> <b> Log in </b> </button>
-        <p class="signup-label"> Not a member? <a href> Sign up </a> now! </p>
-      </div>
+    <div class="main-container">
+        <!--Wrapper for mobile responsiveness-->
+        <div class="login-container">
+
+            <!--Logo and title container-->
+            <div class="header">
+                  <img class="logo" src="/assets/img/smarterlithlogo.svg"></img>
+                  <p class="title"> Smarterlith </p>
+            </div>
+
+            <!--Login form-->
+            <div class="auth_form">
+                <input class="auth_form-input" placeholder="Username" v-model="authData.email" > </input>
+                <input class="auth_form-input" type="password" placeholder="Password" v-model="authData.password"> </input>
+                <button class="auth_form-button" @click="login()"> <b> Log in </b> </button>
+                <p class="auth_form-label"> Not a member? <a href class="auth_form-link"> Sign up </a> now! </p>
+            </div>
+
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 
+  import Auth from 'services/authService.js';
+
   var vm = {
-    created : function(){
-      var vm = this;
+
+    data: function(){
+      return {
+        authData : {
+          email : "",
+          password : ""
+        }
+      }
+    },
+
+    methods : {
+
+      login : function(){
+        Auth.login(this.authData, "/");
+      }
+
     }
   }
 
@@ -32,121 +54,134 @@
   @import '~bootstrap-sass/assets/stylesheets/_bootstrap';
   @import "globals.scss";
 
-  $color-main : #FF0056;
-  $color-main-light : #FF699B;
-  $gray-ligth : #FDFDFD;
-  $gray-dark : #363636;
+  //This pallette is unique for this section
+  //Palletton color scheme ID: 2T61Tuullw0w0
+  $color-main : white;
+  $background-main: #025414;
+  $background-sec : #E9EDEA;
 
-    .main-container{
+  .main-container{
+    height:100vh;
+    padding: 5% 0% 5% 0%;
+    text-align: center;
+    background-color: $background-main;
 
-      height:100vh;
-      padding: 5% 0% 5% 0%;
-      text-align: center;
-      background-image: linear-gradient(rgba(15,20,15, 0.7), rgba(15,20,15, 0.9)),
-          url('../../assets/img/code.jpg');
-      //Fill screen
-      background-size: 100% 100%;
-      //Responsive base font sizes
-      font-size:1.8rem;
+    //Responsive base font sizes
+    font-size:5rem;
+    //Base size (landscape mode)
+    @media screen and (orientation:landscape){
+      font-size:2.5rem;
+    }
+    //Base size (larger devices)
+    @include respond-to('md'){
+      font-size:4rem;
+    }
+    @include respond-to('lg'){
+      font-size:2.7rem;
+    }
 
-      @include respond-to('sm'){
-        font-size:2rem;
-      }
-      @include respond-to('md'){
-        font-size:3rem;
-      }
-
-      //If mobile, center content vertically
-      display: flex;
-      justify-content:center;
-      align-items: center;
-      // For larger screens, don't center all the content!
-      // (it will appear too low down large screen)
-
-      @include respond-to('md'){
-        align-items: flex-start;
-      }
-
-      //Wrap content for mobile (in case screen is flipped)
-      .login-container{
-        @include respond-to('xs'){
-          display: flex;
-          justify-content:space-around;
-          align-items: flex-start;
-          flex-wrap:wrap;
-        }
-      }
-
-      .login-header{
-        font-size:1.5em;
-        color:$color-main;
-        margin:0.6em 0.7em 1em 0.7em;
-
-        .login-header-logo{
-          display:inline-block;
-          margin: 0.3em 0.3em 0.1em 0.3em;
-          height:4em;
-        }
-
-      }
-
-      //Auth menu
-      .auth{
-        display: inline-block;
-        text-align: center;
-        @include respond-to('md'){
-          font-size:0.6em;
-        }
-
-        .input-transparent{
-          display:block;
-          width: 16em;
-          padding: 0.3em 0.2em 0.3em 0.5em;
-          margin: 1em auto 0.8em 1.2em;
-          background-color: $gray-dark;
-          border-style:solid;
-          border-width: 0.15em;
-          border-color:$gray-dark;
-          color:$gray-ligth;
-          font-size : 1em;
-        }
-      }
-
-      .header{
-        margin-bottom:0.05em;
-      }
-
-
-      .login-button{
-        display:block;
-        padding: 0.3em 0.3em 0.3em 0.3em;
-        margin: 1em auto 0.8em 1.2em;
-        width: 16em;
-        background-color: $color-main;
-        border: none;
-        color:black;
-        transition: background-color 0.1s linear;
-
-        &:focus, &:hover{
-          background-color:$color-main-light;
-        }
-      }
-
-      .signup-label{
-        margin: 2em auto 0.8em 1em;
-        color:white;
-
-        a{
-          font-weight: bold;
-          color: $color-main;
-          transition: color 0.1s linear;
-          &:focus, &:hover{
-            text-decoration: none;
-            color:$color-main-light;
-          }
-        }
-      }
-
+    //If mobile, center content vertically
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    // For larger screens, don't center all the content!
+    // (it will appear too low down large screen)
+    @include respond-to('md'){
+      align-items: flex-start;
+    }
   }
+
+  //Wrap content for mobile (in case screen is flipped)
+  .login-container{
+    @include respond-to('sm'){
+      display: flex;
+      justify-content:space-around;
+      align-items: flex-start;
+      flex-wrap:wrap;
+    }
+    @include respond-to('md'){
+      display:block;
+      padding: 0.5em 1em 1em 1em;
+    }
+  }
+
+  .header{
+    font-size:1.5em;
+    color:$color-main;
+    margin:0.6em 0.7em 1em 0.7em;
+  }
+
+  .logo{
+    display:inline-block;
+    margin: 0.3em 0.3em 0.1em 0.3em;
+    height:4em;
+  }
+
+  .title{
+    margin-bottom:0.05em;
+  }
+
+  //Auth menu
+  .auth_form{
+    display: inline-block;
+    text-align: center;
+    @include respond-to('md'){
+      font-size:0.6em;
+    }
+  }
+
+  .shadow-highlight{
+    box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.12), 0 0.1em 0.2em rgba(0,0,0,0.24);
+    transition: box-shadow 0.3s linear(.25,.8,.25,1);
+
+    &:focus, &:hover{
+      box-shadow: 0 0.4em 1em rgba(0,0,0,0.25), 0 0.5em 0.5em rgba(0,0,0,0.22);
+    }
+  }
+
+  .auth_form-input{
+    display:block;
+    width: 16em;
+    padding: 0.3em 0.2em 0.3em 0.5em;
+    margin: 0.6em 1.2em 0.8em 1.2em;
+    background-color: $color-main;
+    border: none;
+    outline-style:none;
+    color:black;
+    font-size : 1em;
+    @extend .shadow-highlight;
+  }
+
+  .auth_form-button{
+    display:block;
+    padding: 0.3em 0.3em 0.3em 0.3em;
+    margin: 1em 1.2em 0.8em 1.2em;
+    width: 16em;
+    background-color: $analogic2-s2;
+    border: none;
+    color:white;
+    transition: background-color 0.1s linear;
+    outline-style:none;
+    &:focus, &:hover{
+      background-color:$analogic1-s2;
+    }
+    @extend .shadow-highlight;
+  }
+
+  .auth_form-label{
+    margin: 2em 1em 0.8em 1em;
+    color:$color-main;
+  }
+
+  .auth_form-link{
+    font-weight: bold;
+    color: $analogic2-s2;
+    transition: color 0.1s linear;
+    &:focus, &:hover{
+      text-decoration: none;
+      color:$analogic1-s2;
+    }
+  }
+
 
 </style>

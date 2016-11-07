@@ -1,4 +1,5 @@
 <template>
+  <navbar></navbar>
     <surveys></surveys>
 </template>
 
@@ -37,7 +38,7 @@
 
   @font-face {
       font-family: Montserrat;
-      src: url('/Montserrat-Regular.otf');
+      src: url('../assets/fonts/Montserrat-Regular.otf');
   }
 
   @font-face {

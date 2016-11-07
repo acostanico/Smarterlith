@@ -53,7 +53,7 @@
       box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.19)
     ),webkit moz);
 
-    background-color:$primary-s3;
+    background-color:$primary-s5;
     border:none;
     text-align:left;
 

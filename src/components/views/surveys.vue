@@ -10,7 +10,7 @@
       <div class="survey-card"> je </div>
       <div class="survey-card"> je </div>
       <div class="survey-card"> je </div>
-      <div class="survey-card"> je </div>
+      <div class="survey-card"> jedddd </div>
       <div class="survey-card"> je </div>
     </div>
   </div>
